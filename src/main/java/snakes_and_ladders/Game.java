@@ -64,6 +64,14 @@ public class Game {
 
             // Check if there's Snake or Ladder at new position
             if (board.getBoardEntities().containsKey(playerNewPosition)) {
+                BoardEntity boardEntity = board.getBoardEntities().get(playerNewPosition);
+                if (boardEntity.getClass().getSimpleName() == "Snake") {
+                    System.out.println("Oops! snake encountered.");
+                    System.out.println(boardEntity);
+                } else {
+                    System.out.println("Wohoo! Ladder encountered.");
+                    System.out.println(boardEntity);
+                }
                 playerNewPosition = board.getBoardEntities().get(playerNewPosition).getEnd();
             }
         } else {
