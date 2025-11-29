@@ -9,8 +9,17 @@ public class Main {
 
         Player p1 = new Player("A");
         Player p2 = new Player("B");
+        Player p3 = new Player("C");
+
         game.addPlayer(p1);
         game.addPlayer(p2);
+        game.addPlayer(p3);
+
+        System.out.println(game.getPlayers());
+
+        System.out.println(game.getBoard().getBoardEntities());
+
+        game.getBoard().printBoard();
 
         game.launch();
     }

@@ -31,5 +31,51 @@ public class Game {
 
     public void launch() {
         System.out.println("Game started!!!");
+
+        while (players.size() > 1) {
+            Player player = players.poll();
+
+            makeMove(player);
+
+            if (hasWon(player)) {
+                winners.add(player);
+                System.out.println("Congratulations " + player.getName() + " you won!");
+            } else {
+                players.offer(player);
+            }
+        }
+
+        System.out.println("Game ended!!!");
+        System.out.println("Winners are....");
+
+        winners.forEach(System.out::println);
+
+    }
+
+    public void makeMove(Player player) {
+        // roll dice
+        int move = DiceService.roll(numberOfDice);
+        System.out.println(player + " you got : " + move);
+
+        int playerCurrPosition = player.getPosition();
+        int playerNewPosition = playerCurrPosition + move;
+
+        if (playerNewPosition <= boardSize) {
+
+            // Check if there's Snake or Ladder at new position
+            if (board.getBoardEntities().containsKey(playerNewPosition)) {
+                playerNewPosition = board.getBoardEntities().get(playerNewPosition).getEnd();
+            }
+        } else {
+            playerNewPosition = playerCurrPosition;
+        }
+
+        player.setPosition(playerNewPosition);
+
+        System.out.println("new position = " + player.getPosition());
+    }
+
+    public boolean hasWon(Player player) {
+        return player.getPosition() == boardSize;
     }
 }

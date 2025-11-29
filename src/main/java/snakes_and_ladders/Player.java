@@ -11,5 +11,14 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
+        this.position = 1;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", position=" + position +
+                '}';
     }
 }
