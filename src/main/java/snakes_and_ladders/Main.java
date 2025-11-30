@@ -3,7 +3,7 @@ package snakes_and_ladders;
 public class Main {
     public static void main(String[] args) {
         int boardDimension = 10;
-        int numberOfDice = 1;
+        int numberOfDice = 2;
 
         Game game = new Game(boardDimension, numberOfDice);
 
@@ -17,6 +17,7 @@ public class Main {
         game.addPlayer(p3);
         game.addPlayer(p4);
 
+        game.getBoard().printBoard();
         game.launch();
     }
 }
