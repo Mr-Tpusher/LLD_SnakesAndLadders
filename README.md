@@ -7,9 +7,13 @@
 4. Snake or Ladder cannot start from the end of other Snake or Ladder
 
 
-##Entities
+## Entities
 
 Game
-  |--- Board -- BoardEntity (Snake , Ladder)
-  |--- Player
+  |--- Board -- BoardEntity (Snake , Ladder)  
+  |--- Player  
   |--- DiceService
+
+
+### UML Diagram
+![SnakesAndLadders](docs/uml/SnakesAndLadder.drawio.png)
